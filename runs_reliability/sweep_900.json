@@ -1,0 +1,54 @@
+{
+  "seed": 900,
+  "episodes": 30,
+  "results": [
+    {
+      "level": 0.15,
+      "learn": {
+        "n": 54,
+        "entropy_late": 5.754887502163468,
+        "entropy_early": 5.138940744221986,
+        "unique_late": 1.0,
+        "distinct1": 0.2646733111849391,
+        "distinct2": 0.6148409893992933,
+        "mean_words": 16.72222222222222
+      }
+    },
+    {
+      "level": 0.4,
+      "learn": {
+        "n": 54,
+        "entropy_late": 5.754887502163468,
+        "entropy_early": 5.532665279941246,
+        "unique_late": 1.0,
+        "distinct1": 0.3524229074889868,
+        "distinct2": 0.7384370015948963,
+        "mean_words": 12.61111111111111
+      }
+    },
+    {
+      "level": 0.65,
+      "learn": {
+        "n": 54,
+        "entropy_late": 5.754887502163468,
+        "entropy_early": 5.495628242904209,
+        "unique_late": 1.0,
+        "distinct1": 0.4096153846153846,
+        "distinct2": 0.7939914163090128,
+        "mean_words": 9.62962962962963
+      }
+    },
+    {
+      "level": 0.9,
+      "learn": {
+        "n": 54,
+        "entropy_late": 5.754887502163468,
+        "entropy_early": 5.60673935401532,
+        "unique_late": 1.0,
+        "distinct1": 0.3768844221105528,
+        "distinct2": 0.7826887661141805,
+        "mean_words": 11.055555555555555
+      }
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+# Higher-capacity child adapter.
+#
+# mlx_lm.lora exposes --num-layers on the CLI but NOT rank, so rank has
+# to come from a config file. Run with:
+#
+#     mlx_lm.lora -c child_r32.yaml
+#
+# vs the current adapters_child_v5, which used --num-layers 8 at the
+# default rank and gave 5.24M trainable parameters:
+#   - num_layers 8  -> 16   (twice as many layers adapted)
+#   - rank default  -> 32   (wider adapters)
+# together roughly 8x the trainable parameters.
+#
+# NOTE, honestly: it is genuinely unclear whether this helps. The
+# hypothesis is that more capacity lets an update make a small
+# distributed change rather than a large destructive one. The opposite
+# is just as plausible -- 8x the parameters is 8x the ways to overfit a
+# three-word target, and rank 32 may collapse FASTER. The dose sweep is
+# the only way to find out.
+
+model: "mlx-community/Meta-Llama-3.1-8B-Instruct-4bit"
+train: true
+data: "child_data"
+adapter_path: "adapters_child_r32"
+
+# Same as the settings that produced a healthy adapters_child_v5.
+iters: 150
+learning_rate: 1.0e-5
+batch_size: 4
+num_layers: 16
+
+lora_parameters:
+  keys: ["self_attn.q_proj", "self_attn.v_proj"]
+  rank: 32
+  scale: 20.0
+  dropout: 0.0

@@ -1,0 +1,53 @@
+{
+  "seed": 502,
+  "episodes": 30,
+  "threshold": 1.2,
+  "batch_size": 2,
+  "runs": [
+    {
+      "updates": 54,
+      "gated": 109,
+      "early_unique": 38,
+      "late_unique": 45,
+      "collapsed": false,
+      "lr": 3e-07,
+      "drift_diff": {
+        "comforted": 0.3753801573538671,
+        "distressed": 0.13262709368773976,
+        "protesting": -0.2951142497060367,
+        "withdrawn": 0.03627543994998614
+      },
+      "abs_drift": 0.8393969406976297
+    },
+    {
+      "updates": 53,
+      "gated": 108,
+      "early_unique": 40,
+      "late_unique": 45,
+      "collapsed": false,
+      "lr": 1e-06,
+      "drift_diff": {
+        "comforted": 0.35863955875548775,
+        "distressed": 0.4460100735629205,
+        "protesting": -0.5272975488111822,
+        "withdrawn": 0.24423543060647807
+      },
+      "abs_drift": 1.5761826117360684
+    },
+    {
+      "updates": 34,
+      "gated": 90,
+      "early_unique": 42,
+      "late_unique": 17,
+      "collapsed": true,
+      "lr": 3e-06,
+      "drift_diff": {
+        "comforted": -1.7541928819496182,
+        "distressed": 0.8124488177960806,
+        "protesting": 0.7822246046167766,
+        "withdrawn": 0.7358718060751034
+      },
+      "abs_drift": 4.084738110437579
+    }
+  ]
+}

@@ -1,0 +1,81 @@
+{
+  "seeds": [
+    600,
+    601,
+    602
+  ],
+  "threshold": 1.2,
+  "batch_size": 2,
+  "episodes": 30,
+  "results": [
+    {
+      "seed": 600,
+      "gated_on": 107,
+      "gated_off": 104,
+      "drift_diff": {
+        "comforted": 1.0254256732677658,
+        "distressed": 0.033990810916380065,
+        "protesting": -0.6773582508053251,
+        "withdrawn": -0.08623305403690201
+      },
+      "learning_drift": {
+        "comforted": 0.9825643578439582,
+        "distressed": 0.08962739620537134,
+        "protesting": -0.7958084151679304,
+        "withdrawn": 0.1989642030912
+      },
+      "frozen_drift": {
+        "comforted": -0.04286131542380761,
+        "distressed": 0.05563658528899128,
+        "protesting": -0.11845016436260539,
+        "withdrawn": 0.285197257128102
+      }
+    },
+    {
+      "seed": 601,
+      "gated_on": 93,
+      "gated_off": 78,
+      "drift_diff": {
+        "comforted": 0.7798080687164058,
+        "distressed": 0.030361775262757254,
+        "protesting": -0.6419024765665371,
+        "withdrawn": 0.07184817924057171
+      },
+      "learning_drift": {
+        "comforted": 0.929321009235616,
+        "distressed": -0.03603751943989268,
+        "protesting": -0.7320690637372719,
+        "withdrawn": 0.1250865436731668
+      },
+      "frozen_drift": {
+        "comforted": 0.14951294051921019,
+        "distressed": -0.06639929470264994,
+        "protesting": -0.09016658717073484,
+        "withdrawn": 0.05323836443259508
+      }
+    },
+    {
+      "seed": 602,
+      "gated_on": 116,
+      "gated_off": 105,
+      "drift_diff": {
+        "comforted": 1.3996933787472225,
+        "distressed": 0.4584562014404612,
+        "protesting": -1.1681410550458937,
+        "withdrawn": -0.160313539007204
+      },
+      "learning_drift": {
+        "comforted": 1.1361733567075099,
+        "distressed": 0.4544736231878826,
+        "protesting": -0.9093194452892794,
+        "withdrawn": -0.30699295227403933
+      },
+      "frozen_drift": {
+        "comforted": -0.26352002203971275,
+        "distressed": -0.003982578252578556,
+        "protesting": 0.2588216097566142,
+        "withdrawn": -0.14667941326683534
+      }
+    }
+  ]
+}

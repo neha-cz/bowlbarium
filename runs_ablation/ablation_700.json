@@ -1,0 +1,75 @@
+{
+  "seed": 700,
+  "conditions": [
+    {
+      "collapsed": false,
+      "updates": 58,
+      "gated": 117,
+      "early": 43,
+      "late": 45,
+      "mode": "fep",
+      "drift": {
+        "comforted": 1.267441579398505,
+        "distressed": 0.31385834472805507,
+        "protesting": -1.0170382175167574,
+        "withdrawn": -0.2641037888390547
+      }
+    },
+    {
+      "collapsed": false,
+      "updates": 51,
+      "gated": 103,
+      "early": 37,
+      "late": 45,
+      "mode": "naive",
+      "drift": {
+        "comforted": 1.1165734494495632,
+        "distressed": 0.3110798154648798,
+        "protesting": -0.9913242507943855,
+        "withdrawn": 0.1268298764009675
+      }
+    },
+    {
+      "collapsed": false,
+      "updates": 22,
+      "gated": 45,
+      "early": 36,
+      "late": 45,
+      "mode": "percentile",
+      "drift": {
+        "comforted": 0.7924799099614743,
+        "distressed": 0.40397639739539126,
+        "protesting": -0.8578458940399509,
+        "withdrawn": 0.3548914416210063
+      }
+    },
+    {
+      "collapsed": false,
+      "updates": 55,
+      "gated": 110,
+      "early": 42,
+      "late": 45,
+      "mode": "random",
+      "drift": {
+        "comforted": 1.2858727141980266,
+        "distressed": 0.48499345796788246,
+        "protesting": -1.271482303793059,
+        "withdrawn": 0.2838675885868295
+      }
+    },
+    {
+      "collapsed": false,
+      "updates": 49,
+      "gated": 98,
+      "early": 40,
+      "late": 45,
+      "mode": "fep_invert",
+      "drift": {
+        "comforted": 0.8936480438678063,
+        "distressed": 0.8012907351160615,
+        "protesting": -1.0593752169627693,
+        "withdrawn": 0.3210583956505419
+      }
+    }
+  ]
+}

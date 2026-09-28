@@ -1,0 +1,42 @@
+# Floor adapter for the weight-space convergence calibration.
+#
+# WHY THIS EXISTS
+# The convergence result says cross-condition adapters sit at cosine
+# 0.684 while two runs of the SAME condition sit at 0.595 -- i.e. the
+# caregiver condition leaves no signature. But that is only meaningful
+# against a floor: how similar are two adapters trained on genuinely
+# DIFFERENT data?
+#
+# LoRA updates are known to occupy shared layerwise subspaces, so
+# unrelated adapters may also land near 0.68. If they do, the observed
+# number reflects that shared structure rather than anything this
+# experiment produced, and the convergence claim is uninterpretable.
+#
+# adapters_mother_v4 could not serve as the floor: it was trained with
+# --num-layers 8 at the default rank, so its tensors have different
+# shapes and the comparison would confound architecture with task.
+#
+# This trains on the MOTHER's data with the child's EXACT architecture
+# -- rank 32, 16 layers, same iterations and learning rate -- so the
+# only difference from the learned adapters is what it was trained on.
+#
+#     mlx_lm.lora -c floor_matched.yaml
+#
+# Check the trainable-parameter count matches 6.82M. If it does not,
+# the config keys did not take and the comparison is invalid.
+
+model: "mlx-community/Meta-Llama-3.1-8B-Instruct-4bit"
+train: true
+data: "mother_data"
+adapter_path: "adapters_floor_matched"
+
+iters: 150
+learning_rate: 1.0e-5
+batch_size: 4
+num_layers: 16
+
+lora_parameters:
+  keys: ["self_attn.q_proj", "self_attn.v_proj"]
+  rank: 32
+  scale: 20.0
+  dropout: 0.0
