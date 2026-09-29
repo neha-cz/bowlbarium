@@ -6,7 +6,7 @@ The Idea:
 1) Different fine-tuned agents interact in a simulated environment involving attachment, pain, and social pressures.
 2) Determine the moment-to-moment signal of extracted emotion-concept vectors from each interaction.
 3) Following the Free Energy Principle (FEP), calculate valence and mood: valence is the smoothed rate of change of the relevant emotion activations and mood is a slower exponential average of valence. 
-4) If the original interaction involved "surprise", as defined by the FEP, perform: mood = manic; loosen the kl constraint; mood = depressive, increase the kl constraint
+4) If the original interaction involved "surprise", as defined by the FEP, perform: mood = manic; loosen the KL constraint; mood = depressive, increase the KL constraint
 5) Ask the agent to verbally reflect on the interaction, which becomes the concrete training signal gated by step 5. 
 6) Update the weights accordingly. 
   
