@@ -1,6 +1,6 @@
 # Marvarium
 
-Studying how emotional introspection and multi-agent social interactions in LLMs with unfrozen weights in a simulated environment can induce/enhance learning. Heavily inspired and motivated by The Emotion Machine by Marvin Minsky.
+Simulating Bowlby's attachment theory and its implication on learning in agent-agent interactions with unfrozen weights in a simulated environment. Heavily inspired and motivated by The Emotion Machine by Marvin Minsky.
 
 The Idea: 
 1) Different fine-tuned agents interact in a simulated environment involving attachment, pain, and social pressures.
@@ -12,7 +12,7 @@ The Idea:
   
 The simulation and the agents are implemented in Python (mlx_lm with LoRA adapters on Llama-3.1-8B-Instruct). 
 
-![marvarium outline](docs/surprise_gated_learning_schema.png)
+## Emergence of non-epistemic sycophancy-like behavior
 
 ## Repository layout
 
