@@ -1,8 +1,3 @@
-# Rust
-/target/
-**/*.rs.bk
-*.pdb
-
 # IDE / editor
 .idea/
 .vscode/
@@ -19,14 +14,15 @@ Thumbs.db
 .env.local
 .env.*.local
 
-# Experiment outputs
-/runs/
+# Experiment outputs (results under runs/ are committed deliberately;
+# runs/multi_seed/ is the one scratch output dir that stays untracked)
+/runs/multi_seed/
 /outputs/
 /checkpoints/
 /logs/
 *.log
 
-# Python (for future ML / training integration)
+# Python
 __pycache__/
 *.py[cod]
 .venv/
@@ -42,7 +38,6 @@ build/
 .ipynb_checkpoints/
 
 # Coverage & profiling
-*.profraw
 coverage/
 htmlcov/
 .lcov

@@ -10,9 +10,38 @@ The Idea:
 5) Ask the agent to verbally reflect on the interaction, which becomes the concrete training signal gated by step 5. 
 6) Update the weights accordingly. 
   
-The simulated world will primarily be scaffolded in Rust, with agent implemenations in Python (using Thinking Machines Lab's Inkling as the model + Tinker to fine-tune). 
+The simulation and the agents are implemented in Python (mlx_lm with LoRA adapters on Llama-3.1-8B-Instruct). 
 
-![marvarium outline](surprise_gated_learning_schema.png)
+![marvarium outline](docs/surprise_gated_learning_schema.png)
+
+## Repository layout
+
+```
+configs/           mlx_lm LoRA training configs (*.yaml)
+data/              cold-start SFT data (child/, mother/, child_alt/) and emotion_vectors.json
+adapters/          trained LoRA adapters (mother_*, child_*, ceil_*, fixed_*, floor_matched)
+runs/              experiment outputs, one folder per experiment (learning/, dose/, hysteresis/, ...)
+                   runs/pilot/ holds the first single-seed run; runs/multi_seed/ is untracked scratch
+docs/              figures
+src/core/          the pipeline: event_generator -> run_episodes / learning_loop -> extract_emotions,
+                   plus fep_layer (valence/mood/gate), drift_analysis and build_coldstart_data
+src/experiments/   drivers that launch the pipeline across seeds, doses, reliabilities, phases
+src/analysis/      post-hoc analyses over the affect files in runs/
+src/probes/        model-in-the-loop checks (load an adapter and generate)
+src/theory/        toy models with no data dependency
+```
+
+Every Python script is run **from the repository root**, e.g.
+
+```
+python src/experiments/multi_seed_learning.py --seeds 600 601 602
+python src/analysis/decoupling.py --learning "runs/learning/*_on.jsonl" --frozen "runs/learning/*_off.jsonl"
+mlx_lm.lora -c configs/child_r32.yaml
+```
+
+Paths to data, adapters and runs are relative to the root. Scripts outside `src/core/`
+carry a small path shim at the top so they can import the shared modules in `src/core/`
+without any install step.
 
 ### References:
 
