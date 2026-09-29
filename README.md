@@ -16,7 +16,7 @@ Every learning run is paired with a frozen twin experiencing the identical partn
 
 ## Emergence of non-epistemic sycophancy-like behavior
 
-Protest decay behaviorally involves an agent becoming more deferential, which AI safety research calls sycophancy. Traditionally, this deference is attributed to the training signal: human raters prefer agreeable responses, reward models learn the preference, and policies optimized against them defer. However, in our experiment, we explore how deference-like behavior arises without a preference signal, implying the standard account for sycophancy is incomplete and the standard mitigations do not reach it.
+Our key finding was that the child's protest behavior consistently decayed over time upon interacting with the caregiver. This decay behaviorally involves an agent becoming more deferential, which AI safety research calls sycophancy. Traditionally, this deference is attributed to the training signal: human raters prefer agreeable responses, reward models learn the preference, and policies optimized against them defer. However, in our experiment, we explore how deference-like behavior arises without a preference signal, implying the standard account for sycophancy is incomplete and the standard mitigations do not reach it.
 
 ## Repository layout
 
