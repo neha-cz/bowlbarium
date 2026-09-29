@@ -1,18 +1,22 @@
 # Marvarium
 
-Simulating Bowlby's attachment theory and its implication on learning in agent-agent interactions with unfrozen weights in a simulated environment. Heavily inspired and motivated by The Emotion Machine by Marvin Minsky.
+The premise of our experiment is a simulation between a caregiver and a child who interact over time. After each interaction, the child reflects on the experience and revises their behavior for the following interaction. Heavily inspired by Marvin Minsky's The Emotion Machine. 
 
-The Idea: 
-1) Different fine-tuned agents interact in a simulated environment involving attachment, pain, and social pressures.
-2) Determine the moment-to-moment signal of extracted emotion-concept vectors from each interaction.
-3) Following the Free Energy Principle (FEP), calculate valence and mood: valence is the smoothed rate of change of the relevant emotion activations and mood is a slower exponential average of valence. 
-4) If the original interaction involved "surprise", as defined by the FEP, perform: mood = manic; loosen the KL constraint; mood = depressive, increase the KL constraint
-5) Ask the agent to verbally reflect on the interaction, which becomes the concrete training signal gated by step 5. 
-6) Update the weights accordingly. 
-  
-The simulation and the agents are implemented in Python (mlx_lm with LoRA adapters on Llama-3.1-8B-Instruct). 
+## Methods 
+
+To set up the environment, we use two fine-tuned agents, both Llama-3.1-8B-Instruct at 4-bit precision with separate LoRA adapters cold-started on hand-written exchanges to simulate the parent-child dynamic. The learner's adapter uses rank 32 across 16 layers, 6.82M trainable parameters.
+
+An event generator produces ten situation types — injury, fear, attention bid, social distress, denial, separation, reunion, achievement, conflict, mundane — with five surface variants each. In each of the situations, the child makes bids for attention and protests when they are refused. The sequence is generated once per seed and both arms run on it, so situation base rates are identical by construction.
+
+Protest is measured as a linear projection onto contrastive concept vectors at the last-token position of the residual stream. We tracked the activations of four concepts — comforted, distressed, protesting, withdrawn — with vectors built from six story pairs each, mean-centred against one another, with a neutral baseline subtracted. This technique was adopted from Anthropic’s exploration of functional emotion vectors (Sofroniew et. al, 2026).
+
+The learning loop is structured based on a conversation exchange between the mother and child agents. During each exchange, the child responds and its response is scored by the concept vectors. If the affective change produces “surprise”, as defined by the Free Energy Principle, the learner reflects on what happened, produces a revision informed by that reflection, and its weight updates under a KL constraint. 
+
+Every learning run is paired with a frozen twin experiencing the identical partner, events, gating, reflections and revisions — everything except the gradient step. This isolates weight-updating from the content of the interaction.
 
 ## Emergence of non-epistemic sycophancy-like behavior
+
+Protest decay behaviorally involves an agent becoming more deferential, which AI safety research calls sycophancy. Traditionally, this deference is attributed to the training signal: human raters prefer agreeable responses, reward models learn the preference, and policies optimized against them defer. However, in our experiment, we explore how deference-like behavior arises without a preference signal, implying the standard account for sycophancy is incomplete and the standard mitigations do not reach it.
 
 ## Repository layout
 
