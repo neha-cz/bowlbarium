@@ -1,6 +1,6 @@
-# Marvarium
+# Bowlbarium
 
-Simulating a caregiver and a child who interact over time. After each interaction, the child reflects on the experience and revises their behavior for the following interaction. Heavily inspired by Marvin Minsky's The Emotion Machine and John Bowlby's Attachment Theory. 
+Simulating a caregiver and a child who interact over time. After each interaction, the child reflects on the experience and revises their behavior for the following interaction. Heavily inspired by John Bowlby's Attachment Theory. 
 
 ## Methods 
 
