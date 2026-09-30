@@ -49,6 +49,7 @@ without any install step.
 
 ### References:
 
+- Bowlby, J. Separation anxiety. The International Journal of Psychoanalysis, 41, 89–113. (1960).
 - Minsky, Marvin. The Emotion Machine: Commonsense Thinking, Artificial Intelligence, and the Future of the Human Mind. (2006)
 - Friston, Karl. The free-energy principle: a unified brain theory? (2010)
 - Joffily, Matteus & Coricelli, Giorgio. Emotional Valence and the Free-Energy Principle (2013)
